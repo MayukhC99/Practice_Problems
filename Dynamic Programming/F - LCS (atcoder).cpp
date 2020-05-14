@@ -53,11 +53,11 @@ public:
         
         while (i > 0 && j > 0) 
    		{ 
-      		// If current character in X[] and Y are same, then 
+      		// If current character in text1[] and text2[] are same, then 
       		// current character is part of LCS 
       		if (text1[i-1] == text2[j-1]) 
       		{ 
-         		s = text1[i-1] + s; // Put current character in result 
+         		s = text1[i-1] + s; // Put current character in result in reverse order
           		i--; j--;      // reduce values of i, j and index 
       		} 
   
