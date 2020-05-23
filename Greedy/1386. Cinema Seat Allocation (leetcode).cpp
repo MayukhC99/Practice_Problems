@@ -1,6 +1,6 @@
 /*
 *
-*Problem Link : https://leetcode.com/problems/broken-calculator/
+*Problem Link : https://leetcode.com/problems/cinema-seat-allocation/
 *Platform: leetcode
 *Status: correct
 *Author: Mayukh Chakrabarti
@@ -27,17 +27,35 @@ using namespace std;
 
 class Solution {
 public:
-    int brokenCalc(int X, int Y) {
-        int count = 0;
+    int numOfFamiliesCanArrange(uint8_t n) {
+        if (n == 0) 
+            return 2;
+    
+        if (n == 5 || n == 6 || n == 7 || n == 10 || n == 11 || n == 13 || n == 14 || n == 15)                 return 0;
         
-        while (Y > X) {
+        return 1;
+    }
+    
+    int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
+        
+        vector<uint8_t> p(1+(n>>1), 0);
+        int total = 2 * n; 
+        
+        for (auto &s:reservedSeats) {
             
-            Y = Y % 2 != 0 ? Y + 1 : Y / 2;
-            count++;
+            if (s[1] == 1 || s[1] == 10) 
+                continue;
+            
+            int r = s[0] - 1;
+            uint8_t v = ((p[r>>1] >> (4*(r&1))) & 0xf);
+            uint8_t nv = (v | (1 << ((s[1] - 2)>>1)));
+            total -= (numOfFamiliesCanArrange(v) - numOfFamiliesCanArrange(nv));
+            
+            p[r/2] = (r&1) ? ((p[r>>1] & 0xf) | (nv << 4)) : ((p[r>>1] & 0xf0) | nv);
         }
-        
-        return count + X - Y;
+        return total;
     }
 };
+
 
 
