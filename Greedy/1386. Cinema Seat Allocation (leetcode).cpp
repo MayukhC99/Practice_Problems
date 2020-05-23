@@ -31,7 +31,8 @@ public:
         if (n == 0) 
             return 2;
     
-        if (n == 5 || n == 6 || n == 7 || n == 10 || n == 11 || n == 13 || n == 14 || n == 15)                 return 0;
+        if (n == 5 || n == 6 || n == 7 || n == 10 || n == 11 || n == 13 || n == 14 || n == 15) 
+			return 0;
         
         return 1;
     }
