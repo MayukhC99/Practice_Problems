@@ -1,8 +1,8 @@
 /*
 *
-*Problem Link :
-*Platform:
-*Status:
+*Problem Link : https://codeforces.com/contest/1175/problem/D
+*Platform: codeforces
+*Status: correct
 *Author: Mayukh Chakrabarti
 *
 */
@@ -26,9 +26,11 @@ typedef long long int lld;
 using namespace std;
 
 
-const int MAX = 1e5;
+const int MAX = 300009;
 
 int main(){
+	
+	speed;boost;
 	
 	int n,k;
 	int a[MAX];
@@ -36,8 +38,8 @@ int main(){
 	cin>>n>>k;
 	F(a,n);
 	
-	long long sum = 0;
-	vector <long long> v;
+	lld sum = 0;
+	vector <lld> v;
 	
 	for(int i = n - 1; i >= 0; i--){
 		
@@ -47,13 +49,13 @@ int main(){
 			v.push_back(sum);
 	}
 	
-	long long res = sum;
+	lld res = sum;
 	
 	sort(v.begin(), v.end());
 	reverse(v.begin(), v.end());
 	
 	
-	for(int i = 0; i < k - 1; ++i)
+	for(int i = 0; i < k-1; ++i)
 	    res += v[i];
 	    
 	cout<<res<<endl;
