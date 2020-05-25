@@ -49,7 +49,7 @@ int main(){
 		int digit= i;
 		//right shift digit by 1 untill digit becomes 0
 		while(digit){
-			int n= digit & 1 ;//masking for the 0th position of bit in i 
+			int n= digit & 1 ;//masking for the 0th position of bit in digit
 			
 			if(n) //if n is 1 then set bit exists at pos position
 				cout<<s[pos]; //print the character at pos position
