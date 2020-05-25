@@ -28,13 +28,7 @@ typedef long long int lld;
 
 using namespace std;
 
-
-
-int main(){
-	speed;boost;
-	
-	string s;
-	cin>>s;
+void solve1(string s){
 	
 	int len= s.length();
 	//now we just need to traverse for (2^len) times
@@ -49,7 +43,7 @@ int main(){
 		int digit= i;
 		//right shift digit by 1 untill digit becomes 0
 		while(digit){
-			int n= digit & 1 ;//masking for the 0th position of bit in digit
+			int n= digit & 1 ;//masking for the 0th position bit in digit
 			
 			if(n) //if n is 1 then set bit exists at pos position
 				cout<<s[pos]; //print the character at pos position
@@ -60,6 +54,49 @@ int main(){
 		
 		cout<<endl;
 	}
+}
+
+//using another way of extraction
+int solve2(string s){
+	
+	int len= s.length();
+	//now we just need to traverse for (2^len) times
+	for(int i=0 ; i < (1<<len) ; i++ ){
+		
+		/*
+		*for every i we need to find position of set bits
+		*and print the string characters corresponding
+		*to the position
+		*/
+		int digit= i;
+		/*
+		*we need to perform n= digit&(-digit) to extract right most set bit
+		*and after operation to eleminate that set bit from actual digit
+		*we perform digit= digit-n.
+		*we continue this process untill digit is 0
+		*/
+		while(digit){
+			int n= digit & (-digit) ;
+			//now n contains the right most set bit of digit
+			
+			int pos= log2(n); //we get to know the position of set bit by taking log base 2 of its decimal number
+			cout<<s[pos]; //print the character at pos position
+			
+			digit= digit - n ; //eleminating the set bit from position pos of digit
+		}
+		
+		cout<<endl;
+	}
+}
+
+
+int main(){
+	speed;boost;
+	
+	string s;
+	cin>>s;
+	
+	solve2(s);
 	
 	return 0;
 }
