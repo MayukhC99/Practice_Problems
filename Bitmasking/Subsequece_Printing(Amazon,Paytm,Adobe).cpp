@@ -43,7 +43,7 @@ int main(){
 		/*
 		*for every i we need to find position of set bits
 		*and print the string characters corresponding
-		*to the string
+		*to the position
 		*/
 		int pos=0;
 		int digit= i;
