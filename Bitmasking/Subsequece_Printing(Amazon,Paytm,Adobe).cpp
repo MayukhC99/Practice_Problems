@@ -57,7 +57,7 @@ void solve1(string s){
 }
 
 //using another way of extraction
-int solve2(string s){
+void solve2(string s){
 	
 	int len= s.length();
 	//now we just need to traverse for (2^len) times
