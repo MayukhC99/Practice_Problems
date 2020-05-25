@@ -47,12 +47,12 @@ int main(){
 		*/
 		int pos=0;
 		int digit= i;
-		//right shift by 1 i untill i becomes 0
+		//right shift by digit by untill digit becomes 0
 		while(digit){
 			int n= digit & 1 ;//masking for the 0th position of bit in i 
 			
-			if(n) //if n is 1 then set bit exists pos position
-				cout<<s[pos]; //print the character in pos position
+			if(n) //if n is 1 then set bit exists at pos position
+				cout<<s[pos]; //print the character at pos position
 			
 			pos++;
 			digit= digit >> 1 ;
