@@ -47,7 +47,7 @@ int main(){
 		*/
 		int pos=0;
 		int digit= i;
-		//right shift by digit by untill digit becomes 0
+		//right shift digit by 1 untill digit becomes 0
 		while(digit){
 			int n= digit & 1 ;//masking for the 0th position of bit in i 
 			
