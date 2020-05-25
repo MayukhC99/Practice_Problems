@@ -37,7 +37,7 @@ int main(){
 	cin>>s;
 	
 	int len= s.length();
-	//now we just need to traverse for (2^len)-1 times
+	//now we just need to traverse for (2^len) times
 	for(int i=0 ; i < (1<<len) ; i++ ){
 		
 		/*
