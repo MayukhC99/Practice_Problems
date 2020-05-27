@@ -46,9 +46,8 @@ public:
             int pos= 0;
             int len= k;
             while(len--){
-                int check= dig & 1;
                 
-                if(check)
+                if(dig & 1)
                     temp[ mp[ pos ] ] = toupper( temp[ mp[ pos ] ] );
                 else
                     temp[ mp[ pos ] ] = tolower( temp[ mp[ pos ] ] );
