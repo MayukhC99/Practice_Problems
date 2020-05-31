@@ -62,7 +62,10 @@ int main(){
 	memset(dp, -1 , sizeof dp);
 	solve(0 , n-1 , 1 , n);
 	
-	cout<<dp[0][n-1];
+	cout<<dp[0][n-1]<<endl;
+	
+	cout<<"The dp table is :-"<<endl;
+	PNF(dp,n,n);
 	
 	return 0;
 }
