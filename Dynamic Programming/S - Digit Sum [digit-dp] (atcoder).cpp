@@ -63,7 +63,7 @@ int main(){
 	
 	
 	memset(dp,-1,sizeof dp);
-	cout<<( solve(0,1,0) - 1 );//0 will also be calculated. So, we are decreasing the solution by 1.
+	cout<<( solve(0,1,0) - 1  + mod) % mod;//0 will also be calculated. So, we are decreasing the solution by 1.
 	
 	return 0;
 }

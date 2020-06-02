@@ -2,7 +2,7 @@
 *
 *Problem Link : https://codeforces.com/contest/628/problem/D
 *Platform: codeforces
-*Status: TLE on 35th testcase
+*Status: correct
 *Author: Mayukh Chakrabarti
 *
 */
@@ -35,13 +35,10 @@ const lld mod= 1000000007;
 lld dp[2002][2002][2][2][2]; 
 
 lld m,d;
-//lld len;
-//char a[2002],b[2002];
-//char *s;
 string a,b;
 string s;
 
-lld solve(lld pos,lld mo,bool tight,bool even,bool start){
+lld solve(int pos,int mo,bool tight,bool even,bool start){
 	
 	if(pos == s.length())
 		return mo==0 ;
@@ -50,7 +47,7 @@ lld solve(lld pos,lld mo,bool tight,bool even,bool start){
 	
 	
 	lld ans=0;
-	lld end= ( (tight)? ( s[pos]-'0' ) : 9 );
+	int end= ( (tight)? ( s[pos]-'0' ) : 9 );
 	
 	if( !start ){
 		ans= (ans + solve(pos+1 , mo, tight&(s[pos]=='0'), 0 , 0)) % mod;
@@ -63,7 +60,7 @@ lld solve(lld pos,lld mo,bool tight,bool even,bool start){
 			
 	}
 	else {
-		for(lld i= 0; i<=end ; i++){
+		for(int i= 0; i<=end ; i++){
 		
 			if( even and (i == d ) )
 				ans= (ans + solve( pos+1 , (mo*10 + i)%m , tight&(i==end) , !even, 1)) % mod;
@@ -84,8 +81,6 @@ int main(){
 	
 	cin>>m>>d;
 	cin>>a>>b;
-	//scanf("%lld %lld",&m,&d);
-	//scanf("%s %s",a,b);
 	
 	memset(dp, -1 , sizeof dp);
 	s= b;
