@@ -48,7 +48,7 @@ int main()
        cin>>a>>b;
        dis.push_back(make_pair(a,b));
    	}
-   	ll tym=0,j=0;
+   	ll time=0,j=0;
    	queue<ll>q;
    	q.push((ll)1);
    	q.push((ll)0);
@@ -60,9 +60,9 @@ int main()
        
        	if(p==0){
            	if(!q.empty())
-		   		tym++,q.push((ll)0);
+		   		time++,q.push((ll)0);
            	else {
-               tym++;
+               time++;
                break;
            	}
        	}
@@ -72,7 +72,7 @@ int main()
            break;
        	}
        
-       	if(dis[j].first==tym){
+       	if(dis[j].first==time){
            ll z=dis[j].second;
            v[z].clear();
            rec[z]=1;
@@ -90,10 +90,10 @@ int main()
        
    }
    
-   	if(tym<=3&&tym>=1)
-		tym++;
-   	if(flag&&tym!=3392)
-		cout<<tym;
+   	if(time<=3&&time>=1)
+		time++;
+   	if(flag&&time!=3392)
+		cout<<time;
    	else 
 	   cout<<-1;
    
