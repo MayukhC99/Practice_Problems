@@ -35,18 +35,19 @@ using namespace std;
 
 
 class Solution {
+    unordered_map<string,int> mp;
     
-    void solve(vector<string>& words , string& s, int& n , vector<bool>& dp , int start, int end){
+    void solve(string& s, int& n , vector<bool>& dp , int start, int end){
         if(n+1 == end)
             return;
         
         if(start>end)
-            solve(words,s,n,dp,0,end+1);
+            solve(s,n,dp,0,end+1);
         else{
-            if( find(words.begin(),words.end(),s.substr(start,end-start))!=words.end())
+            if( mp.find( s.substr( start , end - start ) ) != mp.end() )
                 dp[end] = max(dp[end] , dp[start]);
                 
-            solve(words,s,n,dp,start+1,end);
+            solve(s,n,dp,start+1,end);
         }
         
         return ;
@@ -54,11 +55,14 @@ class Solution {
     
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
+        for(int i=0; i<wordDict.size(); i++)
+            mp[wordDict[i]]++; //adding words in map for faster searches
+        
         int n = s.length();
         vector<bool> dp(n+2,false);
         dp[0] = true; //dp indexing will start from 1. 0 for empty string
         
-        solve(wordDict , s , n , dp , 0 , 1);
+        solve(s , n , dp , 0 , 1);
         return dp[n];
     }
 };
