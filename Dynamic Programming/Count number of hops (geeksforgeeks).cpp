@@ -40,11 +40,8 @@ int main() {
 	dp[1] = dp[0];
 	dp[2] = dp[1] + dp[0];
 	dp[3] = dp[2] + dp[1] + dp[0];
-	for(int i = 4; i<=50 ; i++){
-	    dp[i]+= dp[i-1];
-	    dp[i]+= dp[i-2];
-	    dp[i]+= dp[i-3];
-	}
+	for(int i = 4; i<=50 ; i++)
+	    dp[i]+= dp[i-1] + dp[i-2] + dp[i-3] ;
 	
 	int T;
 	cin >> T;
