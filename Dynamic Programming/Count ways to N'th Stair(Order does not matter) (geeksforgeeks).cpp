@@ -1,8 +1,8 @@
 /*
 *
-*Problem Link :
-*Platform:
-*Status:
+*Problem Link : https://practice.geeksforgeeks.org/problems/count-ways-to-nth-stairorder-does-not-matter1322/1
+*Platform: geeksforgeeks
+*Status: correct
 *Author: Mayukh Chakrabarti
 *
 */
