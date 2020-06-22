@@ -1,6 +1,6 @@
 /*
 *
-*Problem Link : https://practice.geeksforgeeks.org/problems/count-ways-to-nth-stairorder-does-not-matter1322/1
+*Problem Link : https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence/0
 *Platform: geeksforgeeks
 *Status: correct
 *Author: Mayukh Chakrabarti
@@ -33,45 +33,38 @@ const lld inf= 1e12;
 
 using namespace std;
 
-long long countWays(int);
+/*
+* This problem is a variation of lcs problem, 
+* link : https://github.com/MayukhC99/Practice_Problems/blob/master/Dynamic%20Programming/1143.%20Longest%20Common%20Subsequence%20(leetcode).cpp
+*/
+
+string s;
+lld N;
+lld dp[1005][1005];
+
+lld solve(lld n , lld m){
+	if(n<0 || m<0)
+		return 0;
+	if(dp[n][m] != -1)
+		return dp[n][m];
+	if((s[n] == s[m]) && (n != m))
+		return dp[n][m] = 1 + solve(n-1 , m-1);
+	else
+		return dp[n][m] = max(solve(n-1,m) , solve(n,m-1));	
+}
+
 
 int main(){
 	speed;
-	
-	int t;
-	cin >> t;
-	while(t--){
-		int m;
-		cin >> m;
-		cout << countWays(m) << endl;
+	lld T;
+	cin >> T;
+	while(T--){
+		cin >> N;
+		cin >> s;
+		memset(dp , -1 , sizeof dp);
+		cout << solve(N-1 , N-1) << endl;
 	}
-	
 	return 0;
 }
-
-
-// function to count ways to reach mth stair
-long long dp[1000003]={0};
-long long countWays(int m){
-    if(m < 0)
-        return 0;
-    if(m == 0)
-        return 1;
-    if(dp[m] != 0)
-        return dp[m];
-    
-    dp[m] = 1 + countWays(m-2) ;
-    
-    return dp[m];
-}
-
-//another way(without dp) can be:-
-/*
-long long countWays(int m){
-	return (m/2)+1;
-}
- 
-* Time complexity : O(1)
-*/
 
 
