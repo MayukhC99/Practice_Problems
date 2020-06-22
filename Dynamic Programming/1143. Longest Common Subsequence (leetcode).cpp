@@ -49,3 +49,44 @@ public:
 };
 
 
+/*
+* Bellow is the top down approach of the same problem.
+* question link - https://practice.geeksforgeeks.org/problems/longest-common-subsequence/0
+*/
+/*
+string x,y;
+lld n,m;
+lld dp[105][105];
+
+lld solve(lld a, lld b){
+	if(a<0 || b<0)
+		return 0;
+	if(dp[a][b] != -1)
+		return dp[a][b];
+	
+	if(x[a] == y[b])
+		dp[a][b] = 1 + solve(a-1,b-1) ; 
+	else
+		dp[a][b] = max(solve(a-1,b) , solve(a,b-1));
+	
+	return dp[a][b];
+}
+
+
+int main(){
+	speed;
+	int T;
+	cin >> T;
+	while(T--){
+		cin >> n >> m;
+		cin >> x ;
+		cin >> y;
+		memset(dp, -1 , sizeof dp);
+		cout << solve(n-1 , m-1) << endl;
+	}
+	
+	return 0;
+}
+*/
+
+
