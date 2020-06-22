@@ -51,7 +51,7 @@ lld solve(lld a , lld b){
 
 
 int main(){
-	//speed; 
+	//speed;
 	
 	lld T;
 	cin >> T;
