@@ -61,8 +61,8 @@ int main(){
 		cin >> N;
 		F(ar , N);
 		lld sum = 0;
-		for(lld x : ar)
-			sum+= x;
+		for(int i=0 ; i<N; i++)
+			sum+= ar[i];
 		memset(dp , -1 , sizeof dp);
 		cout << solve(N-1 , sum , 0) << endl;
 	}
