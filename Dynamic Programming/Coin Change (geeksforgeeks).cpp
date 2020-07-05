@@ -33,6 +33,8 @@ const lld inf= 1e12;
 
 using namespace std;
 
+//similar to unbounded knapsack 
+
 lld dp[1000][303];
 int size;
 int N;
